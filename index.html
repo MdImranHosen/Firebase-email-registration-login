@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Firebase Email Login Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style type="text/css">
+		#user-div{
+			display: none;
+		}
+		#login-div{
+			display: none;
+		}
+		#registration-div{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<!-- Fire Base Registration stytem start -->
+    <div class="row" id="registration-div">
+
+		<div class="col-lg-4 offset-lg-4" style="margin-top: 100px;"> 
+             <div class="input-group">
+             	<table class="table table-striped table-bordered">
+             		<thead>
+             			<tr align="center">
+             				<th>Web App Registration System in Firebase</th>
+             			</tr>
+             		</thead>
+             		<tbody>
+             			<tr>
+             				<td><input class="form-control" type="email" id="user_email" name="email" placeholder="Input Your Email" id=""></td>
+             			</tr>
+             			<tr>
+             				<td><input class="form-control" type="password" id="user_password" name="password" placeholder="Password "></td>
+             			</tr>
+             			<tr>
+             				<td><input class="form-control" type="password" id="confrom_password" name="password" placeholder="Confrom Password "></td>
+             			</tr>
+             			<tr>
+             				<td><button onclick="registration()" class="btn btn-primary">Registration</button></td>
+             			</tr>
+             		</tbody>
+             	</table>
+             </div>
+		</div>
+	</div>
+	<!-- Registration stytem End -->
+	<div class="clearfix"></div>
+	<!-- Fire Base Login stytem start -->
+	<div class="row" id="login-div">
+
+		<div class="col-lg-4 offset-lg-4" style="margin-top: 100px;"> 
+             <div class="input-group">
+             	<table class="table table-striped table-bordered">
+             		<thead>
+             			<tr align="center">
+             				<th>Web App Login System in Firebase</th>
+             			</tr>
+             		</thead>
+             		<tbody>
+             			<tr>
+             				<td><input class="form-control" type="email" id="email_field" name="email" placeholder="Input Your Email" id=""></td>
+             			</tr>
+             			<tr>
+             				<td><input class="form-control" type="password" id="password_field" name="password" placeholder="Password "></td>
+             			</tr>
+             			<tr align="center">
+             				<td><button onclick="login()" class="btn btn-primary">Login</button></td>
+             			</tr>
+             			<tr align="center">
+             				<td><button class="btn btn-defult" onclick="reg_account()">New Account Create</button></td>
+             			</tr>
+             		</tbody>
+             	</table>
+             </div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="row" id="user-div">
+		<div class="col-lg-4 offset-lg-4" style="margin-top: 100px;">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr align="center">
+						<th>
+							Welcome to Login Firebase!
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr align="center">
+						<td>
+							<dir id="user_para">imran@gmail.com</dir>
+						</td>
+					</tr>
+					<tr align="center">
+						<td><button class="btn btn-success" onclick="logout()">LogOut</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDovA5Ya_YlHfRWQf8jQlU_1mSU3qC3UQc",
+    authDomain: "web-login-imran.firebaseapp.com",
+    databaseURL: "https://web-login-imran.firebaseio.com",
+    projectId: "web-login-imran",
+    storageBucket: "web-login-imran.appspot.com",
+    messagingSenderId: "4003797659"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
