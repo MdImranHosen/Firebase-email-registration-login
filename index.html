@@ -15,6 +15,9 @@
 		#registration-div{
 			display: none;
 		}
+        #send-verification-div{
+            display: none;
+        }
 	</style>
 </head>
 <body>
@@ -28,21 +31,22 @@
              	<table class="table table-striped table-bordered">
              		<thead>
              			<tr align="center">
-             				<th>Web App Registration System in Firebase</th>
+             				<th colspan="2">Web App Registration System in Firebase</th>
              			</tr>
              		</thead>
              		<tbody>
              			<tr>
-             				<td><input class="form-control" type="email" id="user_email" name="email" placeholder="Input Your Email" id=""></td>
+             				<td colspan="2"><input class="form-control" type="email" id="user_email" placeholder="Email"></td>
              			</tr>
              			<tr>
-             				<td><input class="form-control" type="password" id="user_password" name="password" placeholder="Password "></td>
+             				<td colspan="2"><input class="form-control" type="password" id="user_password" placeholder="Password "></td>
              			</tr>
              			<tr>
-             				<td><input class="form-control" type="password" id="confrom_password" name="password" placeholder="Confrom Password "></td>
+             				<td colspan="2"><input class="form-control" type="password" id="confrom_password" placeholder="Confrom Password "></td>
              			</tr>
              			<tr>
              				<td><button onclick="registration()" class="btn btn-primary">Registration</button></td>
+                            <td><button onclick="myFunction_reload()" class="btn btn-primary float-right"> Log-In </button></td>
              			</tr>
              		</tbody>
              	</table>
@@ -51,6 +55,29 @@
 	</div>
 	<!-- Registration stytem End -->
 	<div class="clearfix"></div>
+    <!-- Send Verification url email Start -->
+    <div class="row" id="send-verification-div">
+        <div class="col-lg-4 offset-lg-4" style="margin-top: 100px;">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr align="center">
+                        <th>
+                            Please Check Email & verify Account!
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr align="center">
+                        <td>
+                            <dir  id="user_para"></dir>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Send Verification url email End -->
+    <div class="clearfix"></div>
 	<!-- Fire Base Login stytem start -->
 	<div class="row" id="login-div">
 
@@ -64,7 +91,7 @@
              		</thead>
              		<tbody>
              			<tr>
-             				<td><input class="form-control" type="email" id="email_field" name="email" placeholder="Input Your Email" id=""></td>
+             				<td><input class="form-control" type="email" id="email_field" name="email" placeholder=" Email" id=""></td>
              			</tr>
              			<tr>
              				<td><input class="form-control" type="password" id="password_field" name="password" placeholder="Password "></td>
@@ -73,14 +100,16 @@
              				<td><button onclick="login()" class="btn btn-primary">Login</button></td>
              			</tr>
              			<tr align="center">
-             				<td><button class="btn btn-defult" onclick="reg_account()">New Account Create</button></td>
+             				<td><button class="btn btn-primary" onclick="reg_account()">New Account Create</button></td>
              			</tr>
              		</tbody>
              	</table>
              </div>
 		</div>
 	</div>
+    <!-- Login stytem End -->
 	<div class="clearfix"></div>
+    <!-- Show Data stytem Start -->
 	<div class="row" id="user-div">
 		<div class="col-lg-4 offset-lg-4" style="margin-top: 100px;">
 			<table class="table table-striped table-bordered">
@@ -94,16 +123,17 @@
 				<tbody>
 					<tr align="center">
 						<td>
-							<dir id="user_para">imran@gmail.com</dir>
+							<dir id="user_email_show"></dir>
 						</td>
 					</tr>
 					<tr align="center">
 						<td><button class="btn btn-success" onclick="logout()">LogOut</button></td>
 					</tr>
-				</tbody>
+                </tbody>
 			</table>
 		</div>
 	</div>
+    <!-- Show Data stytem End -->
 </div>
 
 

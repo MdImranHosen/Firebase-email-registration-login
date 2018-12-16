@@ -1,20 +1,35 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    document.getElementById("user-div").style.display = "block";
-    document.getElementById("login-div").style.display = "none";
-    document.getElementById("registration-div").style.display = "none";
-
     var user = firebase.auth().currentUser;
     if (user != null) {
     	var email_id = user.email;
-    	document.getElementById("user_para").innerHTML = "Welcome user : " + email_id;
+    	var email_verified = user.emailVerified;
+    	if (email_verified != true) {
+         document.getElementById("user-div").style.display = "none";
+         document.getElementById("login-div").style.display = "none";
+         document.getElementById("registration-div").style.display = "none";
+         document.getElementById("send-verification-div").style.display = "block";
+         document.getElementById("user_para").innerHTML = "Email : " + email_id;
+    	 send_verification();
+    	}else{
+         
+         document.getElementById("user-div").style.display = "block";
+         document.getElementById("login-div").style.display = "none";
+         document.getElementById("registration-div").style.display = "none";
+         document.getElementById("send-verification-div").style.display = "none";
+         document.getElementById("user_email_show").innerHTML = "Welcome user : " + email_id;
+         /*document.getElementById("user_email_show").innerHTML = "Welcome user : " + email_id +
+    	 "</br> Verified : " + email_verified;*/
+    	}
+    	
     }
   } else {
     // No user is signed in.
     document.getElementById("user-div").style.display ="none";
     document.getElementById("login-div").style.display = "block";
     document.getElementById("registration-div").style.display = "none";
+    document.getElementById("send-verification-div").style.display = "none";
   }
 });
 
@@ -48,6 +63,17 @@ function registration(){
 			  // ...
 			  window.alert("Error "+ errorMessage);
 			});
+		
+	var user = firebase.auth().currentUser;
+
+    user.sendEmailVerification().then(function() {
+      // Email sent.
+      window.alert("Verification url sent.");
+     }).catch(function(error) {
+      // An error happened.
+      window.alert("Error "+ errorMessage);
+     });
+
 
 	}else{
 		window.alert("Password and Confrom Password dose not Match");
@@ -57,4 +83,21 @@ function registration(){
 function reg_account(){
   document.getElementById("registration-div").style.display = "block";
   document.getElementById("login-div").style.display = "none";
+  document.getElementById("send-verification-div").style.display = "none";
+}
+
+function send_verification(){
+
+	var user = firebase.auth().currentUser;
+
+    user.sendEmailVerification().then(function() {
+      // Email sent.
+      //window.alert("Verification url sent.");
+     }).catch(function(error) {
+      // An error happened.
+      window.alert("Error "+ errorMessage);
+     });
+}
+function myFunction_reload() {
+    location.reload();
 }
